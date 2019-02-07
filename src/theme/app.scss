@@ -1,0 +1,12 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+ion-toolbar {
+  --background: var(--ion-color-tertiary, #7044ff);
+  --color: white;
+}
+
+ion-menu-button {
+  --color: wheat;
+}

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="done-all" large></ion-icon>
+      Todo List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="todoItemsContainer">
+    <ion-list no-border *ngIf="todoItemsContainer.outdatedList.length">
+      <ion-list-header color="danger">
+        Outdated term
+      </ion-list-header>
+
+      <ion-item *ngFor="let todoItem of todoItemsContainer.outdatedList" todoItemsContainer>
+        <ion-icon [name]="todoItem.icon" slot="start"></ion-icon>
+        <label>{{todoItem.title}}</label>
+        <ion-note slot="end" class="pa-item-date">
+          {{ todoItem.todoTime | date:'dd MMM, HH:mm'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-border *ngIf="todoItemsContainer.todayList.length">
+      <ion-list-header class="pa-header-today">
+        Today
+      </ion-list-header>
+
+      <ion-item *ngFor="let todoItem of todoItemsContainer.todayList" todoItemsContainer>
+        <ion-icon [name]="todoItem.icon" slot="start"></ion-icon>
+        <label>{{todoItem.title}}</label>
+        <ion-note slot="end" class="pa-item-date">
+          {{ todoItem.todoTime | date:'HH:mm'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-border *ngIf="todoItemsContainer.tomorrowList.length">
+      <ion-list-header class="pa-header-tomorrow">
+        Tomorrow
+      </ion-list-header>
+
+      <ion-item *ngFor="let todoItem of todoItemsContainer.tomorrowList" todoItemsContainer>
+        <ion-icon [name]="todoItem.icon" slot="start"></ion-icon>
+        <label>{{todoItem.title}}</label>
+        <ion-note slot="end" class="pa-item-date">
+          {{ todoItem.todoTime | date:'dd MMM, HH:mm'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+    <ion-list no-border *ngIf="todoItemsContainer.laterList.length">
+      <ion-list-header class="pa-header-later">
+        Later
+      </ion-list-header>
+
+      <ion-item *ngFor="let todoItem of todoItemsContainer.laterList" todoItemsContainer>
+        <ion-icon [name]="todoItem.icon" slot="start"></ion-icon>
+        <label>{{todoItem.title}}</label>
+        <ion-note slot="end" class="pa-item-date">
+          {{ todoItem.todoTime | date:'dd MMM, HH:mm'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createItem($event)" color="tertiary" size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

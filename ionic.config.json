@@ -1,0 +1,7 @@
+{
+  "name": "personal-assistant",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
